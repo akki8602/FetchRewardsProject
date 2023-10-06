@@ -5,20 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/tableHeading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/display"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:layout_margin="40dp"
+        tools:ignore="MissingConstraints">
+
+        <TableRow
+            android:background="@color/cardview_dark_background">
+            <TextView
+                android:id="@+id/listId"
+                android:textColor="@color/cardview_light_background"
+                android:text="ListId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/name"
+                android:textColor="@color/cardview_light_background"
+                android:text="Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/id"
+                android:textColor="@color/cardview_light_background"
+                android:text="Id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+    <ScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        tools:ignore="MissingConstraints">
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        tools:ignore="MissingConstraints">
+    </TableLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

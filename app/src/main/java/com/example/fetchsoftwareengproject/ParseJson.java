@@ -2,12 +2,11 @@ package com.example.fetchsoftwareengproject;
 
 import android.util.JsonReader;
 import android.util.JsonToken;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,16 +27,7 @@ public class ParseJson {
         return this.order;
     }
 
-    public String print() {
-        String output = "";
-        for (int i = 0; i < this.order.size(); i++) {
-            output += this.order.get(i).getListId() + " ";
-            output += this.order.get(i).getName() + " ";
-            output += this.order.get(i).getId() + "    " + "\n";
-        }
-        return output;
-    }
-
+    // Parses json for each array entry
     public void readList(URL url) throws IOException {
         InputStream input = url.openStream();
         JsonReader reader = new JsonReader(new InputStreamReader(input, "UTF-8"));
@@ -54,6 +44,7 @@ public class ParseJson {
         reader.close();
     }
 
+    // Parse each object and creates an ItemList object
     public ListItem readItem(JsonReader reader) throws IOException {
         int id = 0;
         int listId = 0;
